@@ -16,7 +16,7 @@ function waitForEnter(message: string): Promise<void> {
 			output: process.stdout,
 		});
 
-		rl.question(`${message} (Press Enter to commit) `, () => {
+		rl.question(`${message}`, () => {
 			rl.close();
 			resolve();
 		});
