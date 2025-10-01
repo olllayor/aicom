@@ -100,12 +100,12 @@ async function main() {
 
 		// Extract first line (main commit message)
 		const firstLine = commitMessage.split('\n')[0].trim();
-		
+
 		console.log(''); // Add newline after loader
-		
+
 		// Prompt user with the generated message (editable, press Enter to commit)
 		const finalMessage = await promptCommit(firstLine);
-		
+
 		if (!finalMessage) {
 			console.log('❌ Commit cancelled');
 			process.exit(0);
