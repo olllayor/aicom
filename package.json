@@ -1,0 +1,48 @@
+{
+	"name": "aicom",
+	"version": "0.1.0",
+	"description": "AI-powered git commit message generator using OpenRouter free models",
+	"main": "dist/index.js",
+	"bin": {
+		"aicom": "./dist/index.js"
+	},
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/index.js",
+		"dev": "npm run build && node dist/index.js",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [
+		"git",
+		"commit",
+		"ai",
+		"openrouter",
+		"commit-message",
+		"cli",
+		"automation",
+		"conventional-commits"
+	],
+	"author": "",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yourusername/aicom.git"
+	},
+	"homepage": "https://github.com/yourusername/aicom#readme",
+	"bugs": {
+		"url": "https://github.com/yourusername/aicom/issues"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {}
+}

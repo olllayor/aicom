@@ -1,0 +1,27 @@
+# Source files
+src/
+tsconfig.json
+
+# Development files
+.env
+.env.example
+*.log
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# npm
+node_modules/
+npm-debug.log*
+
+# Testing
+coverage/
+
+# Documentation (keep README.md, but not dev docs)
+PUBLISHING.md
