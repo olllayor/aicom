@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2025-10-01
+
+### Changed
+- 🎯 **Simplified to direct commit** - No more prompts or confirmations
+  - Removed interactive prompt
+  - Removed loading animations
+  - Just executes `git commit` directly with AI-generated message
+  - Clean output showing only git's commit confirmation
+- Updated workflow: `git add .` → `aicom` → Done!
+
+### Removed
+- Interactive message editing prompt
+- Loading spinners
+- Extra output messages
+- readline dependency
+
+### Why
+- Maximum simplicity - one command, one action
+- Faster workflow
+- Less UI noise
+- Trust the AI or amend later if needed
+
 ## [0.2.0] - 2025-10-01
 
 ### Added

@@ -1,6 +1,6 @@
-# 🤖 AIcom - AI-Powered Git Commit Generator
+# 🤖 AIcom - AI-Powered Git Commit
 
-Generate meaningful commit messages using AI and OpenRouter's free models.
+One command to commit with AI-generated message. No prompts, no copy-paste, just commit.
 
 ## 🚀 Quick Start
 
@@ -14,47 +14,32 @@ pnpm add -g aicom
 
 ### Setup
 
-1. Get a free API key from [OpenRouter](https://openrouter.ai/keys)
-
-2. Set your API key:
+Get a free API key from [OpenRouter](https://openrouter.ai/keys) and set it:
 
 ```bash
 export OPENROUTER_API_KEY=your_key_here
+# Add to ~/.zshrc or ~/.bashrc to make permanent
 ```
 
 ### Usage
 
-1. Stage your changes:
-
 ```bash
-git add <your-files>
-```
-
-2. Run aicom and press Enter to commit:
-
-```bash
+git add .
 aicom
 ```
 
-The AI will generate a commit message. You can:
-- Press **Enter** to commit with the generated message
-- Edit the message before pressing Enter
-- Press **Ctrl+C** to cancel
+That's it! AI generates the commit message and commits automatically.
 
 ## 📝 Example
 
 ```bash
-$ git add .
+$ git add src/auth.ts
 $ aicom
-✨ Generating commit message... ⠋
-
-📝 Commit message: feat: add user authentication with JWT tokens
-# Press Enter to commit, or edit the message first
-
-[main 8f7a9c2] feat: add user authentication with JWT tokens
- 3 files changed, 127 insertions(+), 12 deletions(-)
-✅ Committed successfully!
+[main abc1234] feat: add JWT authentication to user service
+ 1 file changed, 45 insertions(+), 3 deletions(-)
 ```
+
+Clean and simple!
 
 ## 📁 Project Structure
 
@@ -84,14 +69,14 @@ src/
 
 ## 🔧 Features
 
-- ✅ **Interactive commit** - Review and edit AI-generated messages before committing
-- ✅ Automatic free model selection from OpenRouter
-- ✅ Conventional commit format
-- ✅ Analyzes git diffs
-- ✅ Simple, clean output
-- ✅ Loading indicators
-- ✅ Press Enter to commit instantly
-- 🚧 Custom prompt templates (coming soon)
+- ✅ **One command commit** - Just run `aicom` and it commits
+- ✅ AI-generated commit messages using free OpenRouter models
+- ✅ Conventional commit format (feat:, fix:, docs:, etc.)
+- ✅ Analyzes git diffs for context
+- ✅ Zero configuration needed (just API key)
+- ✅ Silent execution - no prompts or confirmations
+- ✅ Zero runtime dependencies
+- ✅ Small package size (~7 kB)
 
 ## 🛠️ Development
 
@@ -139,11 +124,11 @@ API keys can be set via:
 
 ## 💡 Tips
 
-- Add `export OPENROUTER_API_KEY=your_key` to your `~/.zshrc` or `~/.bashrc` to make it permanent
-- Edit the generated message before pressing Enter if needed
-- Press Ctrl+C to cancel the commit
-- The tool uses free models from OpenRouter automatically
-- Follows conventional commit format (feat:, fix:, docs:, etc.)
+- Add `export OPENROUTER_API_KEY=your_key` to `~/.zshrc` or `~/.bashrc` for permanent setup
+- The tool automatically uses free models from OpenRouter
+- Follows conventional commit best practices
+- Works silently - only shows git's commit output
+- If you need to edit before committing, use `git commit --amend`
 
 ## 🤝 Contributing
 
