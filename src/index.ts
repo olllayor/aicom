@@ -5,6 +5,8 @@ import { buildPrompt } from './lib/promptEngine';
 import { generateCommitMessage } from './lib/aiService';
 import { getApiKey, hasApiKey } from './lib/config';
 import { fetchFreeModels } from './lib/openrouter';
+import { execSync } from 'child_process';
+import * as readline from 'readline';
 
 // Simple loading animation
 function showLoader(message: string): NodeJS.Timeout {
@@ -19,6 +21,27 @@ function showLoader(message: string): NodeJS.Timeout {
 function stopLoader(loader: NodeJS.Timeout) {
 	clearInterval(loader);
 	process.stdout.write('\r');
+}
+
+// Prompt user with editable commit message
+function promptCommit(message: string): Promise<string> {
+	return new Promise((resolve) => {
+		const rl = readline.createInterface({
+			input: process.stdin,
+			output: process.stdout,
+		});
+
+		// Pre-fill the input with the generated message
+		rl.question(`📝 Commit message: `, (answer) => {
+			rl.close();
+			resolve(answer || message);
+		});
+
+		// Use readline to set the default value
+		if (rl.line !== undefined) {
+			rl.write(message);
+		}
+	});
 }
 
 async function main() {
@@ -78,8 +101,26 @@ async function main() {
 		// Extract first line (main commit message)
 		const firstLine = commitMessage.split('\n')[0].trim();
 		
-		// Output the git command directly
-		console.log(`git commit -m "${firstLine}"`);
+		console.log(''); // Add newline after loader
+		
+		// Prompt user with the generated message (editable, press Enter to commit)
+		const finalMessage = await promptCommit(firstLine);
+		
+		if (!finalMessage) {
+			console.log('❌ Commit cancelled');
+			process.exit(0);
+		}
+
+		// Execute the commit
+		try {
+			execSync(`git commit -m "${finalMessage.replace(/"/g, '\\"')}"`, {
+				stdio: 'inherit',
+			});
+			console.log('✅ Committed successfully!');
+		} catch (error) {
+			console.error('❌ Commit failed:', error);
+			process.exit(1);
+		}
 	} catch (error) {
 		stopLoader(loader);
 		console.error('❌ Failed to generate commit message:', error);

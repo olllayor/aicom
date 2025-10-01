@@ -30,17 +30,16 @@ export OPENROUTER_API_KEY=your_key_here
 git add <your-files>
 ```
 
-2. Generate and get commit command:
+2. Run aicom and press Enter to commit:
 
 ```bash
 aicom
 ```
 
-3. Copy and run the output, or pipe it directly:
-
-```bash
-$(aicom)
-```
+The AI will generate a commit message. You can:
+- Press **Enter** to commit with the generated message
+- Edit the message before pressing Enter
+- Press **Ctrl+C** to cancel
 
 ## 📝 Example
 
@@ -48,12 +47,13 @@ $(aicom)
 $ git add .
 $ aicom
 ✨ Generating commit message... ⠋
-git commit -m "feat: add user authentication with JWT tokens"
 
-# Run the generated command directly
-$ $(aicom)
+📝 Commit message: feat: add user authentication with JWT tokens
+# Press Enter to commit, or edit the message first
+
 [main 8f7a9c2] feat: add user authentication with JWT tokens
  3 files changed, 127 insertions(+), 12 deletions(-)
+✅ Committed successfully!
 ```
 
 ## 📁 Project Structure
@@ -84,13 +84,13 @@ src/
 
 ## 🔧 Features
 
+- ✅ **Interactive commit** - Review and edit AI-generated messages before committing
 - ✅ Automatic free model selection from OpenRouter
 - ✅ Conventional commit format
 - ✅ Analyzes git diffs
 - ✅ Simple, clean output
 - ✅ Loading indicators
-- ✅ Direct command execution support
-- 🚧 Interactive mode (coming soon)
+- ✅ Press Enter to commit instantly
 - 🚧 Custom prompt templates (coming soon)
 
 ## 🛠️ Development
@@ -140,18 +140,20 @@ API keys can be set via:
 ## 💡 Tips
 
 - Add `export OPENROUTER_API_KEY=your_key` to your `~/.zshrc` or `~/.bashrc` to make it permanent
-- Use `$(aicom)` to execute the commit command directly
+- Edit the generated message before pressing Enter if needed
+- Press Ctrl+C to cancel the commit
 - The tool uses free models from OpenRouter automatically
+- Follows conventional commit format (feat:, fix:, docs:, etc.)
 
 ## 🤝 Contributing
 
 This is a simple starter project. Feel free to:
 
-- Add interactive mode
 - Implement streaming responses
 - Create better UI components
 - Add custom templates
 - Improve error handling
+- Add commit message history
 
 ## 📄 License
 

@@ -1,7 +1,7 @@
 {
 	"name": "aicom",
-	"version": "0.1.0",
-	"description": "AI-powered git commit message generator using OpenRouter free models",
+	"version": "0.2.0",
+	"description": "AI-powered git commit message generator with interactive commit - using OpenRouter free models",
 	"main": "dist/index.js",
 	"bin": {
 		"aicom": "./dist/index.js"
