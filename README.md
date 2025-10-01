@@ -146,6 +146,3 @@ This is a simple starter project. Feel free to:
 ## 📄 License
 
 MIT
-
-
-## test
