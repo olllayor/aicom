@@ -35,11 +35,13 @@ That's it! AI generates the commit message and commits automatically.
 ```bash
 $ git add src/auth.ts
 $ aicom
+git commit -m "feat: add JWT authentication to user service" (Press Enter to commit)
+# [User presses Enter]
 [main abc1234] feat: add JWT authentication to user service
  1 file changed, 45 insertions(+), 3 deletions(-)
 ```
 
-Clean and simple!
+Simple: See the message, press Enter, done!
 
 ## 📁 Project Structure
 
@@ -69,14 +71,15 @@ src/
 
 ## 🔧 Features
 
-- ✅ **One command commit** - Just run `aicom` and it commits
-- ✅ AI-generated commit messages using free OpenRouter models
+- ✅ **One command commit** - Just run `aicom`, press Enter, done
+- ✅ Shows the commit message before executing
+- ✅ AI-generated messages using free OpenRouter models
 - ✅ Conventional commit format (feat:, fix:, docs:, etc.)
 - ✅ Analyzes git diffs for context
 - ✅ Zero configuration needed (just API key)
-- ✅ Silent execution - no prompts or confirmations
+- ✅ Press Enter to confirm
 - ✅ Zero runtime dependencies
-- ✅ Small package size (~7 kB)
+- ✅ Small package size (~6.4 kB)
 
 ## 🛠️ Development
 

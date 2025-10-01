@@ -6,6 +6,22 @@ import { generateCommitMessage } from './lib/aiService';
 import { getApiKey, hasApiKey } from './lib/config';
 import { fetchFreeModels } from './lib/openrouter';
 import { execSync } from 'child_process';
+import * as readline from 'readline';
+
+// Wait for user to press Enter
+function waitForEnter(message: string): Promise<void> {
+	return new Promise((resolve) => {
+		const rl = readline.createInterface({
+			input: process.stdin,
+			output: process.stdout,
+		});
+
+		rl.question(`${message} (Press Enter to commit) `, () => {
+			rl.close();
+			resolve();
+		});
+	});
+}
 
 async function main() {
 	// Check if we're in a git repository
@@ -59,6 +75,9 @@ async function main() {
 
 		// Extract first line (main commit message)
 		const firstLine = commitMessage.split('\n')[0].trim();
+
+		// Show the message and wait for Enter
+		await waitForEnter(`git commit -m "${firstLine}"`);
 
 		// Execute the commit directly
 		execSync(`git commit -m "${firstLine.replace(/"/g, '\\"')}"`, {
