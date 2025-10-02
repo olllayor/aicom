@@ -79,7 +79,7 @@ src/
 - ✅ Zero configuration needed (just API key)
 - ✅ Press Enter to confirm
 - ✅ Zero runtime dependencies
-- ✅ Small package size (~6.4 kB)
+- ✅ Small package size (~6.7 kB)
 
 ## 🛠️ Development
 

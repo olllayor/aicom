@@ -26,11 +26,11 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/yourusername/aicom.git"
+		"url": "https://github.com/olllayor/aicom.git"
 	},
-	"homepage": "https://github.com/yourusername/aicom#readme",
+	"homepage": "https://github.com/olllayor/aicom#readme",
 	"bugs": {
-		"url": "https://github.com/yourusername/aicom/issues"
+		"url": "https://github.com/olllayor/aicom/issues"
 	},
 	"engines": {
 		"node": ">=16.0.0"

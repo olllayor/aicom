@@ -6,7 +6,7 @@ export async function generateCommitMessage(diff: string, systemPrompt: string, 
 		headers: {
 			Authorization: `Bearer ${config.apiKey}`,
 			'Content-Type': 'application/json',
-			'HTTP-Referer': 'https://github.com/yourusername/aicom',
+			'HTTP-Referer': 'https://github.com/olllayor/aicom',
 			'X-Title': 'AI Commit Generator',
 		},
 		body: JSON.stringify({
@@ -43,7 +43,7 @@ export async function generateCommitMessageStream(
 		headers: {
 			Authorization: `Bearer ${config.apiKey}`,
 			'Content-Type': 'application/json',
-			'HTTP-Referer': 'https://github.com/yourusername/aicom',
+			'HTTP-Referer': 'https://github.com/olllayor/aicom',
 			'X-Title': 'AI Commit Generator',
 		},
 		body: JSON.stringify({
