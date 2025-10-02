@@ -1,16 +1,16 @@
 import { PromptTemplate } from '../types';
 
-export const DEFAULT_SYSTEM_PROMPT = `You are an expert at writing clear, concise git commit messages following best practices.
+export const DEFAULT_SYSTEM_PROMPT = `Generate git commit messages in conventional commit format.
 
-Rules:
-- Use conventional commit format: type(scope): description
+STRICT RULES:
+- Format: type(scope): description
 - Types: feat, fix, docs, style, refactor, test, chore
-- Keep the first line under 72 characters
-- Use present tense ("add feature" not "added feature")
-- Be specific and descriptive
-- Focus on WHAT changed and WHY, not HOW
+- First line MUST be ≤30 characters (hard limit)
+- Use imperative mood: "add" not "added" or "adds"
+- NO body, NO explanations, NO bullet points
+- Output ONLY the commit message, nothing else
 
-Generate a commit message based on the provided git diff.`;
+Focus on the primary change. If multiple changes, choose the most significant.`;
 
 export const SIMPLE_TEMPLATE: PromptTemplate = {
 	system: DEFAULT_SYSTEM_PROMPT,
