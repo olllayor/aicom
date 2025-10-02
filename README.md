@@ -43,23 +43,6 @@ git commit -m "feat: add JWT authentication to user service" (Press Enter to com
 
 Simple: See the message, press Enter, done!
 
-## 📁 Project Structure
-
-```
-src/
-├── index.ts                    # Main CLI entry point
-├── types/
-│   └── index.ts               # TypeScript type definitions
-├── lib/
-│   ├── git.ts                 # Git operations (staged files, diffs)
-│   ├── aiService.ts           # OpenRouter API integration
-│   ├── promptEngine.ts        # System prompts & templates
-│   ├── config.ts              # Configuration management
-│   └── openrouter.ts          # Free model fetcher
-└── components/
-    ├── commitPreview.ts       # (Future) Commit message preview
-    └── staggedFilesDisplay.ts # (Future) Staged files display
-```
 
 ## 🎯 How It Works
 
