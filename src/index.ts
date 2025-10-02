@@ -77,7 +77,7 @@ async function main() {
 		const firstLine = commitMessage.split('\n')[0].trim();
 
 		// Show the message and wait for Enter
-		await waitForEnter(`git commit -m "${firstLine}"`);
+		await waitForEnter(`git commit -m "\x1b[33m${firstLine}\x1b[0m"`);
 
 		// Execute the commit directly
 		execSync(`git commit -m "${firstLine.replace(/"/g, '\\"')}"`, {
