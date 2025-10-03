@@ -22,6 +22,3 @@ npm-debug.log*
 
 # Testing
 coverage/
-
-# Documentation (keep README.md, but not dev docs)
-PUBLISHING.md
