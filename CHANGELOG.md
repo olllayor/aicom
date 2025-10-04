@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.8] - 2025-01-XX
+
+### Changed
+
+- ⚡ **Blazingly fast streaming responses** - AI response now displays in real-time!
+- Messages appear as they're generated instead of waiting for complete response
+- Significantly improved perceived performance and user experience
+- Streaming implementation provides instant feedback
+
+### Technical
+
+- Switched from `generateCommitMessage` to `generateCommitMessageStream`
+- Real-time character-by-character display using stdout
+- Better responsiveness for users
+
 ## [0.3.3] - 2025-10-01
 
 ### Changed

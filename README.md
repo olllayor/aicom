@@ -49,12 +49,13 @@ Simple: See the message, press Enter, done!
 1. **Checks Git Status** - Verifies you're in a git repo with staged changes
 2. **Fetches Free Model** - Automatically finds an available free model from OpenRouter
 3. **Analyzes Changes** - Gets the git diff of your staged changes
-4. **Generates Message** - Uses AI to create a conventional commit message
-5. **Outputs Command** - Displays the ready-to-run git commit command
+4. **Streams Message** - Uses AI streaming to generate and display commit message in real-time
+5. **Confirms & Commits** - Press Enter to execute the commit
 
 ## 🔧 Features
 
 - ✅ **One command commit** - Just run `aicom`, press Enter, done
+- ✅ **Blazingly fast streaming** - See AI response in real-time as it's generated
 - ✅ Shows the commit message before executing
 - ✅ AI-generated messages using free OpenRouter models
 - ✅ Conventional commit format (feat:, fix:, docs:, etc.)
@@ -120,7 +121,6 @@ API keys can be set via:
 
 This is a simple starter project. Feel free to:
 
-- Implement streaming responses
 - Create better UI components
 - Add custom templates
 - Improve error handling
