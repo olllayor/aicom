@@ -2,7 +2,7 @@
 
 import { isGitRepository, hasStagedChanges, getAllStagedDiff } from './lib/git';
 import { buildPrompt } from './lib/promptEngine';
-import { generateCommitMessage } from './lib/aiService';
+import { generateCommitMessageStream } from './lib/aiService';
 import { getApiKey, hasApiKey } from './lib/config';
 import { fetchFreeModels } from './lib/openrouter';
 import { execSync } from 'child_process';
@@ -65,19 +65,37 @@ async function main() {
 	// Build prompt
 	const prompt = buildPrompt(diff);
 
-	// Generate commit message silently
+	// Generate commit message with streaming
 	try {
-		const commitMessage = await generateCommitMessage(prompt.user, prompt.system, {
-			apiKey,
-			modelId: model.id,
-			modelName: model.name,
-		});
+		// Show the command prefix
+		process.stdout.write('git commit -m "');
+		
+		let commitMessage = '';
+		
+		// Use streaming to show response as it comes
+		await generateCommitMessageStream(
+			prompt.user, 
+			prompt.system, 
+			{
+				apiKey,
+				modelId: model.id,
+				modelName: model.name,
+			},
+			(chunk) => {
+				// Display chunk in yellow color
+				process.stdout.write(`\x1b[33m${chunk}\x1b[0m`);
+				commitMessage += chunk;
+			}
+		);
+		
+		// Close the quote
+		process.stdout.write('"');
 
 		// Extract first line (main commit message)
 		const firstLine = commitMessage.split('\n')[0].trim();
 
-		// Show the message and wait for Enter
-		await waitForEnter(`git commit -m "\x1b[33m${firstLine}\x1b[0m"`);
+		// Wait for Enter
+		await waitForEnter('');
 
 		// Execute the commit directly
 		execSync(`git commit -m "${firstLine.replace(/"/g, '\\"')}"`, {
