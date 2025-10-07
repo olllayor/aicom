@@ -22,6 +22,8 @@ export OPENROUTER_API_KEY=your_key_here
 # Add to ~/.zshrc or ~/.bashrc if you prefer keeping it in your shell too
 ```
 
+The API key will be automatically saved to `~/.aicom/config.json` for future use.
+
 ### Usage
 
 ```bash
@@ -111,7 +113,8 @@ API keys can be provided in two ways:
 
 ## 💡 Tips
 
-- Add `export OPENROUTER_API_KEY=your_key` to `~/.zshrc` or `~/.bashrc` for permanent setup
+- The API key is automatically saved after first use - no need to export it every time
+- Optionally add `export OPENROUTER_API_KEY=your_key` to `~/.zshrc` or `~/.bashrc` if you prefer
 - The tool automatically uses free models from OpenRouter
 - Follows conventional commit best practices
 - Works silently - only shows git's commit output
