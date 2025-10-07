@@ -18,8 +18,9 @@ Get a free API key from [OpenRouter](https://openrouter.ai/keys) and set it:
 
 ```bash
 export OPENROUTER_API_KEY=your_key_here
-# Add to ~/.zshrc or ~/.bashrc to make permanent
 ```
+
+The API key will be automatically saved to `~/.aicom/config.json` for future use.
 
 ### Usage
 
@@ -105,12 +106,13 @@ pnpm publish
 
 API keys can be set via:
 
-1. Environment variable: `OPENROUTER_API_KEY`
-2. Config file: `~/.aicom/config.json` (future enhancement)
+1. Environment variable: `OPENROUTER_API_KEY` (automatically saved to config file on first use)
+2. Config file: `~/.aicom/config.json` (created automatically)
 
 ## 💡 Tips
 
-- Add `export OPENROUTER_API_KEY=your_key` to `~/.zshrc` or `~/.bashrc` for permanent setup
+- The API key is automatically saved after first use - no need to export it every time
+- Optionally add `export OPENROUTER_API_KEY=your_key` to `~/.zshrc` or `~/.bashrc` if you prefer
 - The tool automatically uses free models from OpenRouter
 - Follows conventional commit best practices
 - Works silently - only shows git's commit output

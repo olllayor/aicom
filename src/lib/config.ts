@@ -38,7 +38,18 @@ export function saveConfig(config: Partial<AIConfig>): void {
 export function getApiKey(): string | undefined {
 	// Check environment variable first
 	const envKey = process.env.OPENROUTER_API_KEY;
-	if (envKey) return envKey;
+	if (envKey) {
+		// If key exists in env but not in config, save it for future use
+		const config = loadConfig();
+		if (!config.apiKey || config.apiKey !== envKey) {
+			try {
+				setApiKey(envKey);
+			} catch {
+				// Silently fail if we can't save, env key still works
+			}
+		}
+		return envKey;
+	}
 
 	// Then check config file
 	const config = loadConfig();
