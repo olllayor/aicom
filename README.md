@@ -1,4 +1,4 @@
-# aicom - AI-Powered Git Commit
+# 🤖 AIcom - AI-Powered Git Commit
 
 One command to commit with AI-generated message. No prompts, no copy-paste, just commit.
 
