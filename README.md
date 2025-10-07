@@ -18,7 +18,8 @@ Get a free API key from [OpenRouter](https://openrouter.ai/keys) and set it:
 
 ```bash
 export OPENROUTER_API_KEY=your_key_here
-# Add to ~/.zshrc or ~/.bashrc to make permanent
+# The tool will store this key in ~/.aicom/config.json automatically
+# Add to ~/.zshrc or ~/.bashrc if you prefer keeping it in your shell too
 ```
 
 ### Usage
@@ -103,10 +104,10 @@ pnpm publish
 
 ## 📦 Configuration
 
-API keys can be set via:
+API keys can be provided in two ways:
 
-1. Environment variable: `OPENROUTER_API_KEY`
-2. Config file: `~/.aicom/config.json` (future enhancement)
+1. Environment variable: `OPENROUTER_API_KEY`. When present, `aicom` saves it to `~/.aicom/config.json` so future sessions can reuse it automatically.
+2. Config file: `~/.aicom/config.json`. You can edit this file directly if you need to rotate keys or switch accounts.
 
 ## 💡 Tips
 
