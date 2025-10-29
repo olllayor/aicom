@@ -1,6 +1,6 @@
 {
 	"name": "aicom",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "AI git commit - see message, press Enter, commit",
 	"main": "dist/index.js",
 	"bin": {
@@ -10,7 +10,8 @@
 		"build": "tsc",
 		"start": "node dist/index.js",
 		"dev": "npm run build && node dist/index.js",
-		"prepublishOnly": "npm run build"
+		"prepublishOnly": "npm run build",
+		"postinstall": "node scripts/postinstall.js"
 	},
 	"keywords": [
 		"git",
@@ -37,6 +38,7 @@
 	},
 	"files": [
 		"dist",
+		"scripts",
 		"README.md",
 		"LICENSE"
 	],
