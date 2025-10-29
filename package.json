@@ -1,6 +1,6 @@
 {
 	"name": "aicom",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"description": "AI git commit - see message, press Enter, commit",
 	"main": "dist/index.js",
 	"bin": {

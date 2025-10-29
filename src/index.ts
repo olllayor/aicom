@@ -7,6 +7,9 @@ import { getApiKey, hasApiKey } from './lib/config';
 import { fetchFreeModels } from './lib/openrouter';
 import { execSync } from 'child_process';
 import * as readline from 'readline';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as os from 'os';
 
 // Wait for user to press Enter
 function waitForEnter(message: string): Promise<void> {
@@ -23,7 +26,26 @@ function waitForEnter(message: string): Promise<void> {
 	});
 }
 
+// Show welcome message on first run
+function showWelcomeOnFirstRun() {
+	const welcomeFile = path.join(os.homedir(), '.aicom_welcome_shown');
+	
+	if (!fs.existsSync(welcomeFile)) {
+		try {
+			execSync(`node "${path.join(__dirname, '..', 'scripts', 'showWelcome.js')}"`, {
+				stdio: 'inherit',
+			});
+			fs.writeFileSync(welcomeFile, '');
+		} catch (error) {
+			// Silently ignore errors
+		}
+	}
+}
+
 async function main() {
+	// Show welcome on first run
+	showWelcomeOnFirstRun();
+
 	// Check if we're in a git repository
 	if (!isGitRepository()) {
 		console.error('❌ Not a git repository');
