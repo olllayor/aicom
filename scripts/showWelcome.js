@@ -61,88 +61,45 @@ async function showWelcome() {
 	log('');
 
 	// Installation progress
-	await showProgress([
-		'Package installed globally',
-		'Dependencies bundled',
-		'CLI configured',
-		'Ready to use',
-	]);
+	await showProgress(['Package installed globally', 'Dependencies bundled', 'CLI configured', 'Ready to use']);
 
 	log('');
-	log(
-		`${colors.bright}${colors.green}✨ Installation Complete!${colors.reset}`,
-	);
+	log(`${colors.bright}${colors.green}✨ Installation Complete!${colors.reset}`);
 	log('');
 
 	// Setup instructions
 	log(`${colors.bright}${colors.blue}📋 Setup Instructions:${colors.reset}`);
-	log(
-		`  ${colors.yellow}1.${colors.reset} Get your OpenRouter API key:`,
-	);
-	log(
-		`     ${colors.dim}https://openrouter.ai/keys${colors.reset}`,
-	);
+	log(`  ${colors.yellow}1.${colors.reset} Get your OpenRouter API key:`);
+	log(`     ${colors.dim}https://openrouter.ai/keys${colors.reset}`);
 	log('');
-	log(
-		`  ${colors.yellow}2.${colors.reset} Set the API key in your environment:`,
-	);
-	log(
-		`     ${colors.bright}export OPENROUTER_API_KEY=your_key_here${colors.reset}`,
-	);
+	log(`  ${colors.yellow}2.${colors.reset} Set the API key in your environment:`);
+	log(`     ${colors.bright}export OPENROUTER_API_KEY=your_key_here${colors.reset}`);
 	log('');
-	log(
-		`  ${colors.yellow}3.${colors.reset} Stage your changes:`,
-	);
-	log(
-		`     ${colors.bright}git add <files>${colors.reset}`,
-	);
+	log(`  ${colors.yellow}3.${colors.reset} Stage your changes:`);
+	log(`     ${colors.bright}git add <files>${colors.reset}`);
 	log('');
 
 	// Usage
-	log(
-		`${colors.bright}${colors.blue}🚀 Quick Start:${colors.reset}`,
-	);
-	log(
-		`     ${colors.bright}${colors.cyan}aicom${colors.reset}`,
-	);
+	log(`${colors.bright}${colors.blue}🚀 Quick Start:${colors.reset}`);
+	log(`     ${colors.bright}${colors.cyan}aicom${colors.reset}`);
 	log('');
 
 	// Features
-	log(
-		`${colors.bright}${colors.blue}✨ Features:${colors.reset}`,
-	);
-	log(
-		`  ${colors.green}✓${colors.reset} AI-powered commit messages (Conventional Commits)`,
-	);
-	log(
-		`  ${colors.green}✓${colors.reset} Uses free OpenRouter models`,
-	);
-	log(
-		`  ${colors.green}✓${colors.reset} Automatic git integration`,
-	);
-	log(
-		`  ${colors.green}✓${colors.reset} Fast & interactive`,
-	);
+	log(`${colors.bright}${colors.blue}✨ Features:${colors.reset}`);
+	log(`  ${colors.green}✓${colors.reset} AI-powered commit messages (Conventional Commits)`);
+	log(`  ${colors.green}✓${colors.reset} Uses free OpenRouter models`);
+	log(`  ${colors.green}✓${colors.reset} Automatic git integration`);
+	log(`  ${colors.green}✓${colors.reset} Fast & interactive`);
 	log('');
 
 	// Links
-	log(
-		`${colors.bright}${colors.blue}📚 Resources:${colors.reset}`,
-	);
-	log(
-		`  GitHub:     ${colors.cyan}https://github.com/olllayor/aicom${colors.reset}`,
-	);
-	log(
-		`  NPM:        ${colors.cyan}https://www.npmjs.com/package/aicom${colors.reset}`,
-	);
-	log(
-		`  Issues:     ${colors.cyan}https://github.com/olllayor/aicom/issues${colors.reset}`,
-	);
+	log(`${colors.bright}${colors.blue}📚 Resources:${colors.reset}`);
+	log(`  GitHub:     ${colors.cyan}https://github.com/olllayor/aicom${colors.reset}`);
+	log(`  NPM:        ${colors.cyan}https://www.npmjs.com/package/aicom${colors.reset}`);
+	log(`  Issues:     ${colors.cyan}https://github.com/olllayor/aicom/issues${colors.reset}`);
 	log('');
 
-	log(
-		`${colors.bright}${colors.magenta}Happy committing! 🎉${colors.reset}`,
-	);
+	log(`${colors.bright}${colors.magenta}Happy committing! 🎉${colors.reset}`);
 	log('');
 }
 
@@ -150,10 +107,12 @@ async function showWelcome() {
 const welcomeFile = path.join(os.homedir(), '.aicom_welcome_shown');
 
 if (!fs.existsSync(welcomeFile)) {
-	showWelcome().then(() => {
-		// Mark as shown
-		fs.writeFileSync(welcomeFile, '');
-	}).catch((error) => {
-		console.error(`${colors.red}Error:${colors.reset}`, error);
-	});
+	showWelcome()
+		.then(() => {
+			// Mark as shown
+			fs.writeFileSync(welcomeFile, '');
+		})
+		.catch((error) => {
+			console.error(`${colors.red}Error:${colors.reset}`, error);
+		});
 }

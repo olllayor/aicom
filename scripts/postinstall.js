@@ -87,10 +87,12 @@ async function main() {
 	log('');
 }
 
-main().catch((error) => {
-	console.error(`${colors.red}Error during installation:${colors.reset}`, error);
-	process.exit(1);
-}).finally(() => {
-	// Ensure output is flushed
-	process.stdout.write('');
-});
+main()
+	.catch((error) => {
+		console.error(`${colors.red}Error during installation:${colors.reset}`, error);
+		process.exit(1);
+	})
+	.finally(() => {
+		// Ensure output is flushed
+		process.stdout.write('');
+	});

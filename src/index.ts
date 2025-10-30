@@ -29,7 +29,7 @@ function waitForEnter(message: string): Promise<void> {
 // Show welcome message on first run
 function showWelcomeOnFirstRun() {
 	const welcomeFile = path.join(os.homedir(), '.aicom_welcome_shown');
-	
+
 	if (!fs.existsSync(welcomeFile)) {
 		try {
 			execSync(`node "${path.join(__dirname, '..', 'scripts', 'showWelcome.js')}"`, {
